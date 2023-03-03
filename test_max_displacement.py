@@ -27,7 +27,7 @@ a = a[:winsize,:winsize].copy()
 # shift should be in the order of y,x:
 # shift = (-12.035, -10.92)
 
-shift = (-0.01, 0.01)
+shift = (-18.1, 15.1)
 
 # The shift corresponds to the pixel offset relative to the reference image
 b = fourier_shift(np.fft.fftn(a), shift)
