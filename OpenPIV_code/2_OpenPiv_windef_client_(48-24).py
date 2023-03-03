@@ -10,8 +10,9 @@ Created on Wed Sep 18 16:42:13 2019
 # so we can use everything from openpiv as openpiv.filters and whatever is 
 # going to replace it will be just filteers (for example)
 import os
+from pathlib import Path
 import numpy as np
-import pandas as pd
+import pandas as pd 
 
 from OpenPIV_windef_func import PIV_windef
 #import time
@@ -22,7 +23,7 @@ class Settings(object):
 settings = Settings()
 
 # Base folder
-base_folder ="M:/19_120-OntwOndInfrst/US_scans_KUL/Data 30_08_22/X_Assistance_AL/"
+base_folder = Path('/home/user/Downloads/X_Assistance_AL(light)/openpiv_max_displacement')
 
 #----------------------------------------------------------------------------------------------------------
 
@@ -69,10 +70,11 @@ for f in frequencies:
                 # OpenPIV script
                 'Data related settings'
                 # Folder with the images to process
-                settings.filepath_images = base_folder+"/Img_pairs_"+f+"_D"+d+"_U"+U+"_V"+velocity
+                settings.filepath_images = base_folder / ("Img_pairs_"+f+"_D"+d+"_U"+U+"_V"+velocity+' (Light)')
+                
                 
                 # Folder for the outputs
-                settings.save_path = base_folder+'./Results_PIV_48-24_S2N1.25/' 
+                settings.save_path = base_folder / 'Results_PIV_48-24_S2N1.25' 
 
                 # Root name of the output Folder for Result Files
                 settings.save_folder_suffix = ''
@@ -88,12 +90,12 @@ for f in frequencies:
                 # settings.ROI=(5*16,15*16,10*16,30*16)#middle region
                 #settings.ROI=(0,500,0,1000)#upper region
                 
-                'Image preprocessing'
+                # 'Image preprocessing'
                 # 'None' for no masking, 'edges' for edges masking, 'intensity' for intensity masking
                 # WARNING: This part is under development so better not to use MASKS
-                settings.dynamic_masking_method = 'None'
-                settings.dynamic_masking_threshold = 0.005
-                settings.dynamic_masking_filter_size = 7 
+                # settings.dynamic_masking_method = None
+                # settings.dynamic_masking_threshold = 0.005
+                # settings.dynamic_masking_filter_size = 7 
                 
                 'Processing Parameters'
                 settings.correlation_method = 'linear'  # 'circular' or 'linear'

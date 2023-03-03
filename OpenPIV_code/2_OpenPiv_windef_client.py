@@ -22,7 +22,7 @@ class Settings(object):
 settings = Settings()
 
 # Base folder
-base_folder ="M:/19_120-OntwOndInfrst/US_scans_KUL/Data 30_08_22/X_Assistance_AL/"
+base_folder =".."
 
 #----------------------------------------------------------------------------------------------------------
 
